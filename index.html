@@ -34,7 +34,7 @@ header{background:var(--warm-white);border-bottom:1px solid var(--border);positi
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1.5rem}
 .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--navy)}
 .logo-text{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.1}
-.logo-img{height:40px;width:auto;object-fit:contain}
+.logo-img{height:56px;width:auto;object-fit:contain}
 .hero-logo{height:50px;width:auto;margin-bottom:1.5rem;opacity:.9;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
 .logo-text small{display:block;font-family:var(--sans);font-size:.65rem;font-weight:400;color:var(--text-muted);letter-spacing:.15em;text-transform:uppercase;margin-top:2px}
 
@@ -90,6 +90,7 @@ nav a.active{background:var(--navy);color:var(--gold-light);font-weight:600}
 .news-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s}
 .news-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
 .news-img{height:180px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold);font-size:2rem;opacity:.3}
+.news-img-real{width:100%;height:180px;object-fit:cover;display:block}
 .news-body{padding:1.5rem}
 .news-date{font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
 .news-body h3{font-family:var(--serif);font-size:1.1rem;color:var(--navy);margin-bottom:.5rem;line-height:1.3}
@@ -131,6 +132,15 @@ footer a:hover{color:var(--gold-light)}
   .logo-text{font-size:1.15rem}
 }
 
+
+/* MOBILE NAV */
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.mobile-nav.active{display:flex}
+.mobile-nav a{color:#fff;text-decoration:none;font-family:var(--serif);font-size:1.4rem;padding:.75rem 1.5rem;border-radius:8px;transition:all .2s;text-align:center}
+.mobile-nav a:hover,.mobile-nav a.active{color:var(--gold-light);background:rgba(255,255,255,.08)}
+.mobile-nav .close-btn{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;padding:.5rem;line-height:1}
+.mobile-nav .btn-acceso-mobile{background:var(--gold);color:var(--navy);font-weight:700;padding:.7rem 2rem;border-radius:8px;font-family:var(--sans);font-size:1rem;margin-top:1rem}
+
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero h1,.hero p,.hero-actions{animation:fadeUp .7s ease-out both}
@@ -163,7 +173,7 @@ footer a:hover{color:var(--gold-light)}
       <a href="https://www.sadaic.org.ar/index.php?area=faq&subarea=mac&capitulo=Preguntas+Frecuentes&areaid=1">Preguntas Frecuentes</a>
     </nav>
     <a href="https://www.sadaic.org.ar/index.php?area=ctacte&subarea=Ingresar&capitulo=Mi+cuenta+corriente&areaid=1&subcapitulo=Ingresar" class="btn-acceso">Mi Cuenta</a>
-    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <button class="hamburger" aria-label="Menú" onclick="document.getElementById('mobileNav').classList.add('active')"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -242,7 +252,7 @@ footer a:hover{color:var(--gold-light)}
     <h2 class="section-title">Últimas noticias</h2>
     <div class="news-grid">
       <div class="news-card">
-        <div class="news-img">♪</div>
+        <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?w=600&h=360&fit=crop" alt="Espectáculo en vivo" class="news-img-real">
         <div class="news-body">
           <div class="news-date">Abril 2026</div>
           <h3>Nuevos aranceles vigentes para espectáculos en vivo</h3>
@@ -250,7 +260,7 @@ footer a:hover{color:var(--gold-light)}
         </div>
       </div>
       <div class="news-card">
-        <div class="news-img">♫</div>
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=360&fit=crop" alt="Música internacional" class="news-img-real">
         <div class="news-body">
           <div class="news-date">Marzo 2026</div>
           <h3>Convenio con CISAC para distribución internacional</h3>
@@ -258,7 +268,7 @@ footer a:hover{color:var(--gold-light)}
         </div>
       </div>
       <div class="news-card">
-        <div class="news-img">♩</div>
+        <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&h=360&fit=crop" alt="Notas musicales" class="news-img-real">
         <div class="news-body">
           <div class="news-date">Marzo 2026</div>
           <h3>Horarios de atención actualizados para Semana Santa</h3>
@@ -307,5 +317,17 @@ footer a:hover{color:var(--gold-light)}
   </div>
 </footer>
 
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" onclick="document.getElementById('mobileNav').classList.remove('active')">&times;</button>
+  <a href="https://www.sadaic.org.ar/" class="active">Inicio</a>
+  <a href="https://www.sadaic.org.ar/index.php?area=ctacte&subarea=Ingresar&capitulo=Mi+cuenta+corriente&areaid=1&subcapitulo=Ingresar">Socios</a>
+  <a href="https://www.sadaic.org.ar/index.php?area=registro&subarea=registra&capitulo=C%C3%B3mo+registrar+las+Obras&subcapitulo=Bolet%C3%ADn+de+declaraci%C3%B3n&areaid=10">Registrar Obras</a>
+  <a href="https://www.sadaic.org.ar/index.php?area=aranceles&subarea=mac&capitulo=Aranceles+por+Derecho+de+Autor&areaid=1">Aranceles</a>
+  <a href="https://www.sadaic.org.ar/index.php?area=sobre.sadaic&subarea=resena&capitulo=Sobre+SADAIC&subcapitulo=Rese%C3%B1a+Hist%C3%B3rica&areaid=7">Institucional</a>
+  <a href="https://www.sadaic.org.ar/index.php?area=faq&subarea=mac&capitulo=Preguntas+Frecuentes&areaid=1">Preguntas Frecuentes</a>
+  <a href="https://www.sadaic.org.ar/index.php?area=ctacte&subarea=Ingresar&capitulo=Mi+cuenta+corriente&areaid=1&subcapitulo=Ingresar" class="btn-acceso-mobile">Mi Cuenta</a>
+</div>
 </body>
 </html>
