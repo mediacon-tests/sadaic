@@ -49,30 +49,32 @@ nav a.active{background:var(--navy);color:var(--gold-light);font-weight:600}
 .hamburger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:.3s}
 
 /* HERO */
-.hero{background:var(--navy);color:#fff;padding:5rem 0 4rem;position:relative;overflow:hidden}
+.hero{background:var(--navy);color:#fff;padding:2.2rem 0 2rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(10,22,40,.97),rgba(26,45,74,.85));z-index:1}
-.hero::after{content:'♪ ♫ ♩ ♬';position:absolute;top:50%;right:5%;font-size:8rem;opacity:.04;transform:translateY(-50%);z-index:0;letter-spacing:1rem}
-.hero .container{position:relative;z-index:2}
-.hero h1{font-family:var(--serif);font-size:3.2rem;font-weight:900;line-height:1.12;max-width:650px;margin-bottom:1.25rem}
+.hero::after{content:'';display:none}
+.hero .container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.hero h1{font-family:var(--serif);font-size:2.2rem;font-weight:900;line-height:1.15;max-width:700px;margin-bottom:.6rem}
 .hero h1 span{color:var(--gold-light)}
-.hero p{font-size:1.15rem;color:rgba(255,255,255,.7);max-width:520px;margin-bottom:2rem;font-weight:300}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-actions a{padding:.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .3s}
+.hero p{font-size:.95rem;color:rgba(255,255,255,.6);max-width:600px;margin-bottom:1rem;font-weight:300}
+.hero-left{flex:1;min-width:300px}
+.hero-right{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.hero-actions a{padding:.6rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.88rem;transition:all .3s}
 .hero-actions .primary{background:var(--gold);color:var(--navy)}
 .hero-actions .primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,150,58,.3)}
 .hero-actions .secondary{border:2px solid rgba(255,255,255,.3);color:#fff}
 .hero-actions .secondary:hover{border-color:var(--gold-light);color:var(--gold-light)}
 
 /* QUICK ACCESS */
-.quick-access{padding:4rem 0;background:var(--warm-white)}
+.quick-access{padding:3.5rem 0 4rem;background:var(--warm-white)}
 .section-label{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
-.section-title{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:2rem;line-height:1.2}
+.section-title{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--navy);margin-bottom:2.5rem;line-height:1.2}
 .access-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.access-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:2rem;text-decoration:none;color:var(--text);transition:all .3s;position:relative;overflow:hidden}
+.access-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem;text-decoration:none;color:var(--text);transition:all .3s;position:relative;overflow:hidden}
 .access-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .3s;transform-origin:left}
 .access-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,22,40,.08);border-color:var(--gold)}
 .access-card:hover::before{transform:scaleX(1)}
-.card-icon{width:48px;height:48px;background:var(--cream);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
+.card-icon{width:52px;height:52px;background:var(--cream);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:.85rem}
 .access-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
 .access-card p{font-size:.9rem;color:var(--text-muted);line-height:1.5}
 
@@ -108,15 +110,16 @@ footer a:hover{color:var(--gold-light)}
 @media(max-width:960px){
   nav{display:none}
   .hamburger{display:block}
-  .hero h1{font-size:2.4rem}
+  .hero h1{font-size:1.8rem}
+  .hero .container{flex-direction:column;align-items:flex-start}
   .access-grid{grid-template-columns:1fr 1fr}
   .info-grid{grid-template-columns:repeat(2,1fr)}
   .news-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
-  .hero{padding:3rem 0 2.5rem}
-  .hero h1{font-size:1.9rem}
+  .hero{padding:1.5rem 0}
+  .hero h1{font-size:1.5rem}
   .hero p{font-size:1rem}
   .section-title{font-size:1.6rem}
   .access-grid{grid-template-columns:1fr}
@@ -167,12 +170,15 @@ footer a:hover{color:var(--gold-light)}
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <img src="data:image/png;base64,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" alt="SADAIC" class="hero-logo">
-    <h1>Protegemos la <span>música argentina</span> desde 1936</h1>
-    <p>Gestionamos y distribuimos los derechos de autor de todos los compositores y autores del país, en todos los géneros.</p>
+    <div class="hero-left">
+      <h1>Protegemos la <span>música argentina</span> desde 1936</h1>
+      <p>Gestionamos y distribuimos los derechos de autor de todos los compositores y autores del país, en todos los géneros.</p>
+    </div>
+    <div class="hero-right">
     <div class="hero-actions">
       <a href="https://www.sadaic.org.ar/index.php?area=registro&subarea=registra&capitulo=C%C3%B3mo+registrar+las+Obras&subcapitulo=Bolet%C3%ADn+de+declaraci%C3%B3n&areaid=10" class="primary">Registrar una obra</a>
       <a href="https://www.sadaic.org.ar/index.php?area=como.asociarse&subarea=condiciones&capitulo=C%C3%B3mo+asociarse&subcapitulo=Requisitos+para+ingresar+a+SADAIC&areaid=8" class="secondary">Quiero asociarme</a>
+    </div>
     </div>
   </div>
 </section>
